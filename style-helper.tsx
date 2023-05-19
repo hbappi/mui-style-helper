@@ -1,17 +1,19 @@
 import { SxProps, Theme } from "@mui/material";
 import { CSSProperties } from "react";
 
-type StyleDeclaration =
-  | CSSProperties
-  | (SxProps<Theme> & {
-      [key: string]: CSSProperties | SxProps<Theme>;
-    });
-type SX =
-  | StyleDeclaration
+type CSSSuggestionType = CSSProperties | SxProps<Theme>;
+
+type _st =
+  | (
+      | CSSSuggestionType
+      | {
+          [key: string]: CSSSuggestionType;
+        }
+    )
   | {
-      [key: string]: StyleDeclaration;
+      [key: string]: _st;
     };
-const createStyles = <T extends Record<string, SX>>(s: T): T => s;
+const createStyles = <T extends Record<string, _st>>(s: T): T => s;
 
 const EfStyleSheet = {
   create: createStyles,
