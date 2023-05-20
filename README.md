@@ -27,10 +27,10 @@ type CSSSuggestionType = CSSProperties;
 
 ```
 
-Use `HbStyleSheet.create();` and pass object inside this like bellow. store the result to a variable. For instance, I am storing in `const styles`.
+Use `EfStyleSheet.create();` and pass object inside this like bellow. store the result to a variable. For instance, I am storing in `const styles`.
 
 ```javascript 
-    const styles = HbStyleSheet.create({
+    const styles = EfStyleSheet.create({
     logginButton: {
       width: "100%",
       margin: "10px 0px",
